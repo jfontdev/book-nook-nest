@@ -1,7 +1,7 @@
 import { Body, Controller, Get, Param, Post } from '@nestjs/common';
-import { CreateBookDTO } from './dto/createBook.dto';
+import { CreateBookDTO } from './dto/create-book.dto';
 import { BooksService } from './books.service';
-import { FindOneBookDTO } from './dto/findOneBook.dto';
+import { FindOneBookDTO } from './dto/find-one-book.dto';
 
 @Controller('books')
 export class BooksController {
@@ -14,11 +14,11 @@ export class BooksController {
 
   @Get()
   async findAll() {
-    return this.bookService.findAll();
+    return this.bookService.findAllBooks();
   }
 
   @Get(':id')
   async findOne(@Param() params: FindOneBookDTO) {
-    return this.bookService.findOne(params.id);
+    return this.bookService.findOneBook(params.id);
   }
 }
